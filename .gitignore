@@ -3,3 +3,4 @@ dist/
 data/
 .env
 *.timestamp-*.mjs
+.DS_Store
