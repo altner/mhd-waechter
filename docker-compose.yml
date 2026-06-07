@@ -1,0 +1,18 @@
+services:
+  nowaste:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - nowaste-data:/app/data
+    environment:
+      - VITE_ANTHROPIC_API_KEY=${VITE_ANTHROPIC_API_KEY}
+      - NTFY_TOPIC=${NTFY_TOPIC}
+      - NTFY_URL=${NTFY_URL:-https://ntfy.sh}
+      - NOTIFY_HOUR=${NOTIFY_HOUR:-8}
+      - WARNING_DAYS=${WARNING_DAYS:-3}
+      - PORT=3000
+    restart: unless-stopped
+
+volumes:
+  nowaste-data:
